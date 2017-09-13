@@ -1,0 +1,345 @@
+var formdata =
+    {
+"_id": "59b2338267d7fa0007a56471",
+"machineName": "dtsserixszcjdbn:subString",
+"modified": "2017-09-13T03:22:22.742Z",
+"title": "SubString",
+"display": "form",
+"name": "subString",
+"path": "substring",
+"project": "59b0f9632f12080007486ff8",
+"action": "",
+"created": "2017-09-08T06:06:58.588Z",
+"components": [
+{
+"path": "text1",
+"properties": {
+"str": ""
+},
+"tags": [],
+"type": "textfield",
+"conditional": {
+"eq": "",
+"when": null,
+"show": ""
+},
+"validate": {
+"customPrivate": false,
+"custom": "",
+"pattern": "",
+"maxLength": "",
+"minLength": "",
+"required": false
+},
+"clearOnHide": true,
+"hidden": false,
+"persistent": true,
+"unique": false,
+"protected": false,
+"defaultValue": "",
+"multiple": false,
+"suffix": "",
+"prefix": "",
+"placeholder": "Type your word here.",
+"key": "wording",
+"label": "Your text before sub string",
+"inputMask": "",
+"inputType": "text",
+"tableView": true,
+"input": true,
+"style": {
+"margin-top": "80px"
+},
+"lockKey": true,
+"calculateValue": ""
+},
+{
+"source": "59b0fc306d85560007c28255",
+"lockKey": true,
+"tags": [],
+"conditional": {
+"show": "",
+"when": null,
+"eq": ""
+},
+"properties": {
+"x": ""
+},
+"type": "number",
+"validate": {
+"custom": "",
+"multiple": "",
+"integer": "",
+"step": "any",
+"max": "",
+"min": "",
+"required": false
+},
+"clearOnHide": true,
+"hidden": false,
+"persistent": true,
+"protected": false,
+"defaultValue": "",
+"suffix": "",
+"prefix": "",
+"placeholder": "Specify number of index to substring left.",
+"key": "xPosition",
+"label": "Index (X)",
+"inputType": "number",
+"tableView": true,
+"input": true,
+"path": "xPosition"
+},
+{
+"key": "space",
+"input": false,
+"components": [
+{
+"lockKey": true,
+"style": {
+"margin-left": ""
+},
+"disabled": false,
+"inline": true,
+"properties": {
+"": ""
+},
+"conditional": {
+"eq": "",
+"when": null,
+"show": ""
+},
+"tags": [],
+"type": "radio",
+"validate": {
+"customPrivate": false,
+"custom": "",
+"required": false
+},
+"clearOnHide": true,
+"hidden": false,
+"persistent": true,
+"protected": false,
+"defaultValue": "",
+"values": [
+{
+"label": "Add",
+"value": "add"
+},
+{
+"label": "Multiply",
+"value": "multiply"
+},
+{
+"label": "SubString Left",
+"value": "subStringLeft"
+},
+{
+    "label": "SubString Right",
+"value": "subStringRight"
+},
+{
+"value": "concat",
+"label": "Concat"
+}
+],
+"key": "functions",
+"label": "",
+"inputType": "radio",
+"tableView": true,
+"input": true
+}
+],
+"tableView": false,
+"type": "well",
+"tags": [],
+"conditional": {
+"show": "",
+"when": null,
+"eq": ""
+},
+"properties": {
+"": ""
+},
+"customClass": "",
+"lockKey": true
+},
+{
+"isNew": false,
+"event": "",
+"custom": "var url = 'https://apimanament.azure-api.net/left/left?str=';\n          url += form.submission.data.str;\n          url += '&x=';\n          url += form.submission.data.x;\n          $.ajax({\n            url: url,\n            beforeSend: function(xhrObj){\n              // Request Header\n            },\n            type: \"GET\"\n          }).done(function(data){\n            \n\tform.submission ={ data: {\n\t\tresult: JSON.stringify(data.result)\n  }\n};\n          }).fail(function(err){\n            console.log(err)\n          });\n        console.log(form.submission);",
+"properties": {
+"": ""
+},
+"conditional": {
+"eq": "",
+"when": null,
+"show": ""
+},
+"tags": [],
+"type": "button",
+"theme": "primary",
+"disableOnInvalid": false,
+"action": "custom",
+"block": false,
+"rightIcon": "",
+"leftIcon": "",
+"size": "md",
+"key": "submit",
+"tableView": false,
+"label": "Start",
+"input": true,
+"style": {
+"margin-left": ""
+},
+"overlay": {
+"style": ""
+},
+"lockKey": true
+},
+{
+"lockKey": true,
+"properties": {
+"": ""
+},
+"tags": [],
+"type": "textfield",
+"conditional": {
+"eq": "",
+"when": null,
+"show": ""
+},
+"validate": {
+"customPrivate": false,
+"custom": "",
+"pattern": "",
+"maxLength": "",
+"minLength": "",
+"required": false
+},
+"clearOnHide": true,
+"hidden": false,
+"persistent": true,
+"unique": false,
+"protected": false,
+"defaultValue": "",
+"multiple": false,
+"suffix": "",
+"prefix": "",
+"placeholder": "Your text after substring!",
+"key": "result",
+"label": "Output",
+"inputMask": "",
+"inputType": "text",
+"tableView": true,
+"input": true
+}
+],
+"owner": "59b0f7f0678919000775f787",
+"submissionAccess": [
+{
+"type": "create_all",
+"roles": [
+"59b0f9642f12080007486ff9"
+]
+},
+{
+"type": "read_all",
+"roles": [
+"59b0f9642f12080007486ff9",
+"59b0f9642f12080007486ffa",
+"59b0f9642f12080007486ffb"
+]
+},
+{
+"type": "update_all",
+"roles": [
+"59b0f9642f12080007486ff9"
+]
+},
+{
+"type": "delete_all",
+"roles": []
+},
+{
+"type": "create_own",
+"roles": []
+},
+{
+"type": "read_own",
+"roles": []
+},
+{
+"type": "update_own",
+"roles": []
+},
+{
+"type": "delete_own",
+"roles": []
+},
+{
+"type": "team_read",
+"roles": []
+},
+{
+"type": "team_write",
+"roles": []
+},
+{
+"type": "team_admin",
+"roles": []
+}
+],
+"access": [
+{
+"type": "create_all",
+"roles": []
+},
+{
+"type": "read_all",
+"roles": [
+"59b0f9642f12080007486ff9",
+"59b0f9642f12080007486ffa",
+"59b0f9642f12080007486ffb"
+]
+},
+{
+"type": "update_all",
+"roles": []
+},
+{
+"type": "delete_all",
+"roles": []
+},
+{
+"type": "create_own",
+"roles": []
+},
+{
+"type": "read_own",
+"roles": []
+},
+{
+"type": "update_own",
+"roles": []
+},
+{
+"type": "delete_own",
+"roles": []
+},
+{
+"type": "team_read",
+"roles": []
+},
+{
+"type": "team_write",
+"roles": []
+},
+{
+"type": "team_admin",
+"roles": []
+}
+],
+"tags": [],
+"type": "form"
+};
