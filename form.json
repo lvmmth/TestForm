@@ -2,7 +2,7 @@ var formdata =
 {
     "_id": "59b2338267d7fa0007a56471",
     "machineName": "dtsserixszcjdbn:subString",
-    "modified": "2017-09-13T03:37:58.463Z",
+    "modified": "2017-09-13T03:43:38.125Z",
     "title": "SubString",
     "display": "form",
     "name": "subString",
@@ -12,49 +12,95 @@ var formdata =
     "created": "2017-09-08T06:06:58.588Z",
     "components": [
     {
-    "calculateValue": "",
-    "lockKey": true,
-    "style": {
-    "margin-top": "80px"
-    },
-    "input": true,
-    "tableView": true,
-    "inputType": "text",
-    "inputMask": "",
-    "label": "Your text before sub string",
-    "key": "wording",
-    "placeholder": "Type your word here.",
-    "prefix": "",
-    "suffix": "",
-    "multiple": false,
-    "defaultValue": "",
-    "protected": false,
-    "unique": false,
-    "persistent": true,
-    "hidden": false,
-    "clearOnHide": true,
-    "validate": {
-    "required": false,
-    "minLength": "",
-    "maxLength": "",
-    "pattern": "",
-    "custom": "",
-    "customPrivate": false
-    },
-    "conditional": {
-    "show": "",
-    "when": null,
-    "eq": ""
-    },
-    "type": "textfield",
-    "tags": [],
+    "path": "text1",
     "properties": {
     "str": ""
     },
-    "path": "text1"
+    "tags": [],
+    "type": "textfield",
+    "conditional": {
+    "eq": "",
+    "when": null,
+    "show": ""
+    },
+    "validate": {
+    "customPrivate": false,
+    "custom": "",
+    "pattern": "",
+    "maxLength": "",
+    "minLength": "",
+    "required": false
+    },
+    "clearOnHide": true,
+    "hidden": false,
+    "persistent": true,
+    "unique": false,
+    "protected": false,
+    "defaultValue": "",
+    "multiple": false,
+    "suffix": "",
+    "prefix": "",
+    "placeholder": "Type your word here.",
+    "key": "wording",
+    "label": "Your text before sub string",
+    "inputMask": "",
+    "inputType": "text",
+    "tableView": true,
+    "input": true,
+    "style": {
+    "margin-top": "80px"
+    },
+    "lockKey": true,
+    "calculateValue": ""
     },
     {
     "lockKey": true,
+    "properties": {
+    "": ""
+    },
+    "tags": [],
+    "type": "textfield",
+    "conditional": {
+    "eq": "",
+    "when": null,
+    "show": ""
+    },
+    "validate": {
+    "customPrivate": false,
+    "custom": "",
+    "pattern": "",
+    "maxLength": "",
+    "minLength": "",
+    "required": false
+    },
+    "clearOnHide": true,
+    "hidden": false,
+    "persistent": true,
+    "unique": false,
+    "protected": false,
+    "defaultValue": "",
+    "multiple": false,
+    "suffix": "",
+    "prefix": "",
+    "placeholder": "Specify number of index to substring left.",
+    "key": "x",
+    "label": "Index (x)",
+    "inputMask": "",
+    "inputType": "text",
+    "tableView": true,
+    "input": true
+    },
+    {
+    "key": "space",
+    "input": false,
+    "components": [
+    {
+    "lockKey": true,
+    "style": {
+    "margin-left": ""
+    },
+    "disabled": false,
+    "inline": true,
     "properties": {
     "": ""
     },
@@ -64,14 +110,10 @@ var formdata =
     "show": ""
     },
     "tags": [],
-    "type": "number",
+    "type": "radio",
     "validate": {
+    "customPrivate": false,
     "custom": "",
-    "multiple": "",
-    "integer": "",
-    "step": "any",
-    "max": "",
-    "min": "",
     "required": false
     },
     "clearOnHide": true,
@@ -79,18 +121,53 @@ var formdata =
     "persistent": true,
     "protected": false,
     "defaultValue": "",
-    "suffix": "",
-    "prefix": "",
-    "placeholder": "Specify number of index to substring left.",
-    "key": "x",
-    "label": "Index (x)",
-    "inputType": "number",
-    "tableView": true,
-    "input": true
+    "values": [
+    {
+    "label": "Add",
+    "value": "add"
     },
     {
-    "lockKey": true,
+    "label": "Multiply",
+    "value": "multiply"
+    },
+    {
+    "label": "SubString Left",
+    "value": "subStringLeft"
+    },
+    {
+    "label": "SubString Right",
+    "value": "subStringRight"
+    },
+    {
+    "value": "concat",
+    "label": "Concat"
+    }
+    ],
+    "key": "functions",
+    "label": "",
+    "inputType": "radio",
+    "tableView": true,
+    "input": true
+    }
+    ],
+    "tableView": false,
+    "type": "well",
+    "tags": [],
+    "conditional": {
+    "show": "",
+    "when": null,
+    "eq": ""
+    },
+    "properties": {
+    "": ""
+    },
     "customClass": "",
+    "lockKey": true
+    },
+    {
+    "isNew": false,
+    "event": "",
+    "custom": "var url = 'https://apimanament.azure-api.net/left/left?str=';\n          url += form.submission.data.str;\n          url += '&x=';\n          url += form.submission.data.x;\n          $.ajax({\n            url: url,\n            beforeSend: function(xhrObj){\n              // Request Header\n            },\n            type: \"GET\"\n          }).done(function(data){\n            \n\tform.submission ={ data: {\n\t\tresult: JSON.stringify(data.result)\n  }\n};\n          }).fail(function(err){\n            console.log(err)\n          });\n        console.log(form.submission);",
     "properties": {
     "": ""
     },
@@ -100,137 +177,62 @@ var formdata =
     "show": ""
     },
     "tags": [],
-    "type": "well",
+    "type": "button",
+    "theme": "primary",
+    "disableOnInvalid": false,
+    "action": "custom",
+    "block": false,
+    "rightIcon": "",
+    "leftIcon": "",
+    "size": "md",
+    "key": "submit",
     "tableView": false,
-    "components": [
-    {
+    "label": "Start",
     "input": true,
-    "tableView": true,
-    "inputType": "radio",
-    "label": "",
-    "key": "functions",
-    "values": [
-    {
-    "value": "add",
-    "label": "Add"
-    },
-    {
-    "value": "multiply",
-    "label": "Multiply"
-    },
-    {
-    "value": "subStringLeft",
-    "label": "SubString Left"
-    },
-    {
-    "value": "subStringRight",
-    "label": "SubString Right"
-    },
-    {
-    "label": "Concat",
-    "value": "concat"
-    }
-    ],
-    "defaultValue": "",
-    "protected": false,
-    "persistent": true,
-    "hidden": false,
-    "clearOnHide": true,
-    "validate": {
-    "required": false,
-    "custom": "",
-    "customPrivate": false
-    },
-    "type": "radio",
-    "tags": [],
-    "conditional": {
-    "show": "",
-    "when": null,
-    "eq": ""
-    },
-    "properties": {
-    "": ""
-    },
-    "inline": true,
-    "disabled": false,
     "style": {
     "margin-left": ""
     },
-    "lockKey": true
-    }
-    ],
-    "input": false,
-    "key": "space"
-    },
-    {
-    "lockKey": true,
     "overlay": {
     "style": ""
     },
-    "style": {
-    "margin-left": ""
-    },
-    "input": true,
-    "label": "Start",
-    "tableView": false,
-    "key": "submit",
-    "size": "md",
-    "leftIcon": "",
-    "rightIcon": "",
-    "block": false,
-    "action": "custom",
-    "disableOnInvalid": false,
-    "theme": "primary",
-    "type": "button",
-    "tags": [],
-    "conditional": {
-    "show": "",
-    "when": null,
-    "eq": ""
-    },
-    "properties": {
-    "": ""
-    },
-    "custom": "var url = 'https://apimanament.azure-api.net/left/left?str=';\n          url += form.submission.data.str;\n          url += '&x=';\n          url += form.submission.data.x;\n          $.ajax({\n            url: url,\n            beforeSend: function(xhrObj){\n              // Request Header\n            },\n            type: \"GET\"\n          }).done(function(data){\n            \n\tform.submission ={ data: {\n\t\tresult: JSON.stringify(data.result)\n  }\n};\n          }).fail(function(err){\n            console.log(err)\n          });\n        console.log(form.submission);",
-    "event": "",
-    "isNew": false
+    "lockKey": true
     },
     {
-    "input": true,
-    "tableView": true,
-    "inputType": "text",
-    "inputMask": "",
-    "label": "Output",
-    "key": "result",
-    "placeholder": "Your text after substring!",
-    "prefix": "",
-    "suffix": "",
-    "multiple": false,
-    "defaultValue": "",
-    "protected": false,
-    "unique": false,
-    "persistent": true,
-    "hidden": false,
-    "clearOnHide": true,
-    "validate": {
-    "required": false,
-    "minLength": "",
-    "maxLength": "",
-    "pattern": "",
-    "custom": "",
-    "customPrivate": false
-    },
-    "conditional": {
-    "show": "",
-    "when": null,
-    "eq": ""
-    },
-    "type": "textfield",
-    "tags": [],
+    "lockKey": true,
     "properties": {
     "": ""
     },
-    "lockKey": true
+    "tags": [],
+    "type": "textfield",
+    "conditional": {
+    "eq": "",
+    "when": null,
+    "show": ""
+    },
+    "validate": {
+    "customPrivate": false,
+    "custom": "",
+    "pattern": "",
+    "maxLength": "",
+    "minLength": "",
+    "required": false
+    },
+    "clearOnHide": true,
+    "hidden": false,
+    "persistent": true,
+    "unique": false,
+    "protected": false,
+    "defaultValue": "",
+    "multiple": false,
+    "suffix": "",
+    "prefix": "",
+    "placeholder": "Your text after substring!",
+    "key": "result",
+    "label": "Output",
+    "inputMask": "",
+    "inputType": "text",
+    "tableView": true,
+    "input": true
     }
     ],
     "owner": "59b0f7f0678919000775f787",
