@@ -2,7 +2,7 @@ var formdata =
 {
     "_id": "59b2338267d7fa0007a56471",
     "machineName": "dtsserixszcjdbn:subString",
-    "modified": "2017-09-13T07:01:04.359Z",
+    "modified": "2017-09-13T07:22:27.198Z",
     "title": "SubString",
     "display": "form",
     "name": "subString",
@@ -190,7 +190,7 @@ var formdata =
     "properties": {
     "": ""
     },
-    "custom": "var opt = form.submission.data.options;\nif(opt==\"subStringLeft\"){\n          \n          var url = 'https://apimanament.azure-api.net/left/left?str=';\n            url += form.submission.data.str;\n            url += '&x=';\n            url += form.submission.data.x;\n}\n          $.ajax({\n            url: url,\n            beforeSend: function(xhrObj){\n              // Request Header\n            },\n            type: \"GET\"\n          }).done(function(data){\n            \n\tform.submission ={ data: {\n\t\tresult: JSON.stringify(data.result)\n  }\n};\n          }).fail(function(err){\n            console.log(err)\n          });\n        console.log(form.submission);",
+    "custom": "var opt = form.submission.data.options;\nif(opt==\"subStringLeft\"){\n        var url = 'https://apimanament.azure-api.net/left/left?str=';         \n}\nif(opt==\"subStringRight\"){\n    var url = 'https://apimanament.azure-api.net/right/right?str=';         \n}\n        url += form.submission.data.str;\n        url += '&x=';\n        url += form.submission.data.x;\n          $.ajax({\n            url: url,\n            beforeSend: function(xhrObj){\n              // Request Header\n            },\n            type: \"GET\"\n          }).done(function(data){\n            \n\tform.submission ={ data: {\n\t\tresult: JSON.stringify(data.result)\n  }\n};\n          }).fail(function(err){\n            console.log(err)\n          });\n        console.log(form.submission);",
     "event": ""
     },
     {
