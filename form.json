@@ -2,7 +2,7 @@ var formdata =
 {
     "_id": "59b2338267d7fa0007a56471",
     "machineName": "dtsserixszcjdbn:subString",
-    "modified": "2017-09-14T04:39:28.789Z",
+    "modified": "2017-09-25T06:01:36.695Z",
     "title": "SubString",
     "display": "form",
     "name": "subString",
@@ -159,6 +159,43 @@ var formdata =
     "style": {
     "margin-top": "30px"
     }
+    },
+    {
+    "input": true,
+    "tableView": true,
+    "inputType": "text",
+    "inputMask": "",
+    "label": "Count",
+    "key": "count",
+    "placeholder": "Count",
+    "prefix": "",
+    "suffix": "",
+    "multiple": false,
+    "defaultValue": "",
+    "protected": false,
+    "unique": false,
+    "persistent": true,
+    "hidden": false,
+    "clearOnHide": true,
+    "validate": {
+    "required": false,
+    "minLength": "",
+    "maxLength": "",
+    "pattern": "",
+    "custom": "",
+    "customPrivate": false
+    },
+    "conditional": {
+    "show": "",
+    "when": null,
+    "eq": ""
+    },
+    "type": "textfield",
+    "tags": [],
+    "properties": {
+    "": ""
+    },
+    "isNew": false
     }
     ],
     "owner": "59b0f7f0678919000775f787",
