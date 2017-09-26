@@ -6,7 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" language="javascript" src="form.json"></script>
     <script type='text/javascript'>
-      window.onload = $.getJSON("form.json", function(formjson) {
+      window.onload = $.getJSON("https://raw.githubusercontent.com/p-phornthip/TestForm/master/form.json", function(formjson) {
         Formio.createForm(document.getElementById('formio'),formjson);
         });
     </script>
