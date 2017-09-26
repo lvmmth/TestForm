@@ -1,4 +1,3 @@
-var formdata =
 {
     "_id": "59b2338267d7fa0007a56471",
     "machineName": "dtsserixszcjdbn:subString",
@@ -305,4 +304,4 @@ var formdata =
     ],
     "tags": [],
     "type": "form"
-    };
+    }
